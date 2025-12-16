@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.chat-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Pseudo Section */
+.pseudo-section input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Messages Display Area */
+.messages-display {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #e6f7ff;
+}
+
+.message-meta {
+    font-size: 0.8em;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+}
+
+.message-author {
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 5px;
+}
+
+/* Message Input Section */
+.message-input-section {
+    display: flex;
+    gap: 10px;
+}
+
+.message-input-section input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.message-input-section button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+}
+
+#send-button {
+    background-color: #007bff;
+}
+
+#refresh-button {
+    background-color: #6c757d;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .chat-container {
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .message-input-section {
+        flex-direction: column;
+    }
+    .message-input-section button {
+        width: 100%;
+    }
+}

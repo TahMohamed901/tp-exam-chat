@@ -1,5 +1,5 @@
 
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://tp-exam-chat-0k42.onrender.com';
 const REFRESH_INTERVAL = 4000;
 
 // Éléments du DOM

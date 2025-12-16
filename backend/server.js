@@ -11,9 +11,12 @@ let messages = [
     { author: "Correcteur", content: "Test de la persistance en mémoire...", timestamp: Date.now() + 1 }
 ];
 
-// --- Middleware ---
-// Activation de CORS pour permettre au frontend Vercel d'accéder à cette API [cite: 29]
-app.use(cors());
+
+app.use(cors({
+    origin: "https://tp-exam-chat-d1h53r0jb-tahmohamed901s-projects.vercel.app",
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders : [ 'Content-Type'],
+}));
 
 // Middleware pour parser le corps des requêtes JSON (pour POST) [cite: 27]
 app.use(express.json());

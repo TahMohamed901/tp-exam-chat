@@ -1,0 +1,55 @@
+name: CI - Build & Test du Chat
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: ⬇️ Checkout du code
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # --- Étape 2: Tests et Build du Backend ---
+      
+      - name: 📦 Installation des dépendances du Backend (Test de l'installation)
+        run: |
+          echo "Vérification des dépendances du Backend..."
+          cd backend/
+          npm install
+
+      # (Optionnel : Ajoutez ici des commandes 'npm test' si vous aviez des tests unitaires)
+      - name: 🧪 Exécution des tests Backend (Simulation)
+        run: echo "Les tests unitaires du Backend s'exécuteraient ici (e.g., npm test)."
+
+      - name: 🔨 Build de l'image Docker du Backend (Test de la configuration)
+        # Ceci vérifie que le Dockerfile est correct et que l'image peut être construite.
+        run: docker build -t chat-backend-image ./backend
+
+      # --- Étape 3: Tests et Build du Frontend ---
+
+      - name: 📦 Installation/Build du Frontend
+        run: |
+          cd frontend/
+          # Si le Frontend est purement HTML/JS/CSS, l'étape est simple :
+          echo "Frontend est simple HTML/JS/CSS, aucune installation npm requise."
+          # Si le Frontend était un projet React/Vue: npm install && npm run build
+
+      - name: 🔨 Build de l'image Docker du Frontend (Test de la configuration)
+        # Ceci vérifie que le Dockerfile est correct.
+        run: docker build -t chat-frontend-image ./frontend
+
+      # --- Étape 4: Conclusion ---
+      
+      - name: ✅ Affichage du succès de la CI
+        run: echo "CI réussie. Les services ont été construits et testés (dépendances + Dockerfile)."
+        
+  # Note: Les étapes de déploiement (Deploy to Vercel/Render) ont été supprimées.

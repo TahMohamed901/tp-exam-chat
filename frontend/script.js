@@ -55,7 +55,7 @@ async function fetchMessages() {
 
 
 async function sendMessage() {
-    const author = pseudoInput.value.trim() || 'Anonyme';
+    const author = pseudoInput.value.trim() || 'user';
     const content = messageContentInput.value.trim();
 
     if (!content) {

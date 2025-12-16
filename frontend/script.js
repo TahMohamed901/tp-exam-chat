@@ -1,6 +1,6 @@
-// Remplacez par l'URL de votre backend Render (ex: https://mon-chat-backend.onrender.com)
+
 const BACKEND_URL = 'http://localhost:3000';
-const REFRESH_INTERVAL = 4000; // Rafraîchissement toutes les 4 secondes (entre 3 et 5 secondes attendues [cite: 19])
+const REFRESH_INTERVAL = 4000;
 
 // Éléments du DOM
 const pseudoInput = document.getElementById('pseudo');
@@ -9,10 +9,6 @@ const messageContentInput = document.getElementById('message-content');
 const sendButton = document.getElementById('send-button');
 
 
-/**
- * Formatte l'heure actuelle en HH:MM:SS
- * @returns {string} L'heure formatée.
- */
 function getCurrentTime() {
     const now = new Date();
     return now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -20,7 +16,7 @@ function getCurrentTime() {
 
 /**
  * Affiche les messages reçus dans la zone d'affichage.
- * @param {Array<Object>} messages - La liste des messages à afficher.
+ * @param {Array<Object>} messages 
  */
 function displayMessages(messages) {
     messagesDisplay.innerHTML = ''; // Vide l'affichage actuel
@@ -39,13 +35,10 @@ function displayMessages(messages) {
         `;
         messagesDisplay.appendChild(messageDiv);
     });
-    // Scroll vers le bas pour voir le dernier message
+
     messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
 }
 
-/**
- * Récupère les messages depuis le backend (GET /api/messages ).
- */
 async function fetchMessages() {
     try {
         const response = await fetch(`${BACKEND_URL}/api/messages`);
@@ -108,11 +101,6 @@ messageContentInput.addEventListener('keypress', function(e) {
         sendMessage();
     }
 });
-
-// Actualisation manuelle
-refreshButton.addEventListener('click', fetchMessages);
-
-// --- Initialisation et Rafraîchissement automatique [cite: 19] ---
 
 // Récupération initiale des messages
 fetchMessages();

@@ -10,10 +10,11 @@ let messages = [
     { author: "Admin", content: "Bienvenue dans le Mini Chat DevOps!", timestamp: Date.now() },
     { author: "Correcteur", content: "Test de la persistance en mémoire...", timestamp: Date.now() + 1 }
 ];
-
+//https://tp-exam-chat-2p060nek3-tahmohamed901s-projects.vercel.app/
+//https://tp-exam-chat-d1h53r0jb-tahmohamed901s-projects.vercel.app
 
 app.use(cors({
-    origin: "https://tp-exam-chat-d1h53r0jb-tahmohamed901s-projects.vercel.app",
+    origin: "https://tp-exam-chat-2p060nek3-tahmohamed901s-projects.vercel.app",
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders : [ 'Content-Type'],
 }));
